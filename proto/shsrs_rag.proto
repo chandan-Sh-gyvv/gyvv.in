@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package shsrs_rag;
+
+// ── Ingest ────────────────────────────────────────────────────────────────────
+message IngestRequest {
+  int32  collection_id = 1;
+  string filename      = 2;
+  bytes  content       = 3;
+  string token         = 4;  // JWT auth
+  int32  chunk_size    = 5;
+  int32  chunk_overlap = 6;
+}
+
+message IngestResponse {
+  int32  document_id = 1;
+  string filename    = 2;
+  int32  n_chunks    = 3;
+  string status      = 4;
+}
+
+// ── Query ─────────────────────────────────────────────────────────────────────
+message QueryRequest {
+  int32  collection_id = 1;
+  string query         = 2;
+  int32  k             = 3;
+  int32  probe         = 4;
+  string model         = 5;
+  string token         = 6;  // JWT auth
+}
+
+message QueryResult {
+  int32  chunk_id    = 1;
+  int32  vector_id   = 2;
+  float  score       = 3;
+  string text        = 4;
+  int32  document_id = 5;
+  string filename    = 6;
+  int32  chunk_index = 7;
+}
+
+message QueryResponse {
+  string             query      = 1;
+  repeated QueryResult results  = 2;
+  string             model_used = 3;
+}
+
+// ── Health ────────────────────────────────────────────────────────────────────
+message HealthRequest  {}
+message HealthResponse { string status = 1; string version = 2; }
+
+// ── Service ───────────────────────────────────────────────────────────────────
+service SHSRSRag {
+  rpc Ingest (IngestRequest)   returns (IngestResponse);
+  rpc Query  (QueryRequest)    returns (QueryResponse);
+  rpc Health (HealthRequest)   returns (HealthResponse);
+}

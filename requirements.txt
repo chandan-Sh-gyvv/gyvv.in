@@ -1,0 +1,33 @@
+# API
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# gRPC
+grpcio==1.62.0
+grpcio-tools==1.62.0
+protobuf==4.25.0
+
+# Embeddings
+sentence-transformers==2.7.0
+openai==1.30.0
+
+# SHSRS engine deps
+faiss-cpu==1.8.0
+numpy==1.26.0
+scikit-learn==1.4.0
+
+# Auth
+python-jose[cryptography]==3.3.0
+bcrypt==4.1.3
+slowapi==0.1.9
+
+# Storage
+sqlalchemy==2.0.0
+aiosqlite==0.20.0
+
+# Utils
+pydantic==2.6.0
+pydantic-settings==2.2.0
+python-dotenv==1.0.0
+tiktoken==0.6.0

@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: shsrs-rag-api
+    runtime: python
+    region: oregon
+    plan: starter
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: uvicorn shsrs_rag.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEFAULT_MODEL
+        value: local
+      - key: LOCAL_MODEL_NAME
+        value: all-MiniLM-L6-v2
+      - key: INDEX_BASE_DIR
+        value: /tmp/indexes
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:////tmp/shsrs_rag.db
+      - key: TRANSFORMERS_OFFLINE
+        value: "0"
+      - key: HF_HUB_OFFLINE
+        value: "0"
+      - key: OPENAI_API_KEY
+        value: ""
+      - key: DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
