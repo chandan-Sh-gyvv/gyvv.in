@@ -1,0 +1,23 @@
+PROPRIETARY LICENSE AGREEMENT
+
+Copyright (c) 2026 GYVV.in. All rights reserved.
+
+1.  OWNERSHIP This software, including its source code, architecture,
+    documentation, and all related intellectual property (including
+    SHSRS integration), is the exclusive property of GYVV.in.
+
+2.  RESTRICTIONS You may NOT:
+
+(a) Copy, modify, or create derivative works.
+(b) Distribute, sublicense, lease, or sell this software.
+(c) Reverse engineer, decompile, or disassemble the software.
+(d) Use the software beyond explicitly authorized internal use.
+
+3.  CONFIDENTIALITY The source code and technical implementation details
+    are confidential and constitute trade secrets. Disclosure to third
+    parties is prohibited.
+
+4.  TERMINATION Any violation of this agreement results in immediate
+    termination of usage rights and may result in legal action.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND.
